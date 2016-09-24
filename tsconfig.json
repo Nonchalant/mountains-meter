@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./.tmp/es2015/",
+    "removeComments": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es2015"
+  },
+  "files": [
+    "./src/**/*.ts"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "mountaismeter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "@cycle/dom": "12.1.0",
+    "@cycle/http": "10.1.0",
+    "cycle-history": "^0.5.0"
+  },
+  "devDependencies": {
+    "@cycle/base": "^4.1.1",
+    "@cycle/core": "^7.0.0",
+    "@cycle/dom": "^12.2.2",
+    "@cycle/http": "^11.0.0",
+    "@cycle/rxjs-run": "^3.0.3",
+    "babel-cli": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "browser-sync": "^2.14.0",
+    "browserify": "^13.1.0",
+    "cycle-history": "^0.5.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-pug": "^3.0.4",
+    "gulp-sass": "2.0.x",
+    "gulp-typescript": "^2.13.0",
+    "node-sass": "3.4.x",
+    "rimraf": "^2.4.0",
+    "rxjs": "5.0.0-beta.12",
+    "vinyl-source-stream": "^1.1.0",
+    "xstream": "^6.2.0"
+  },
+  "scripts": {
+    "build:bundle": "webpack",
+    "build:es2015": "babel .tmp/es2015/ -d .tmp/es5/",
+    "build:ts": "tsc",
+    "clean": "rimraf .tmp lib public/index.css",
+    "copy:dts": "cpx '.tmp/es2015/src/**/*.d.ts' 'lib/'",
+    "copy:js": "cpx '.tmp/es5/src/**/*.js' 'lib/'",
+    "start": "npm-run-all -s 'clean' 'build' 'build:bundle' 'server'",
+    "test": "beater",
+    "watch": "npm-run-all -p 'watch:*'",
+    "watch:es2015": "npm run 'build:es2015' -- --watch",
+    "watch:less": "watch --wait 2 'npm run build:less' 'src/view/dom/'",
+    "watch:server": "webpack-dev-server --config webpack.watch.config.js",
+    "watch:test": "watch --wait 2 'npm test' '.tmp/es5/'",
+    "watch:ts": "npm run 'build:ts' -- --watch"
+  }
+}
